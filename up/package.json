@@ -1,0 +1,53 @@
+{
+  "name": "up",
+  "version": "0.6.0",
+  "description": "cloudup command-line executable",
+  "keywords": [
+    "cloudup",
+    "upload",
+    "file",
+    "files",
+    "cli"
+  ],
+  "dependencies": {
+    "ansi": "~0.2.1",
+    "commander": "1.3.2",
+    "cloudup-client": "0.2.1",
+    "ms": "0.6.1",
+    "printf": "0.1.2",
+    "uid2": "0.0.2",
+    "osthumb": "0.0.1",
+    "term-list": "0.2.0",
+    "open": "0.0.3",
+    "max-component": "~1.0.0",
+    "sum-component": "~0.1.1",
+    "bytes": "~0.2.1",
+    "cliparoo": "1.0.0",
+    "is-code": "~1.1.0",
+    "head": "~1.0.0",
+    "osenv": "~0.0.3"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "better-assert": "*"
+  },
+  "engines": {
+    "node": ">=0.6.0"
+  },
+  "bin": {
+    "up": "bin/up",
+    "up-streams": "bin/up-streams",
+    "up-config": "bin/up-config",
+    "up-copy": "bin/up-copy",
+    "up-open": "bin/up-open"
+  },
+  "readme": "\n# Cloudup CLI\n\n  The cloudup cli `up(1)` allows you to upload files to the cloud with ease.\n\n  ![Cloudup cli](https://i.cloudup.com/tpBkHd8URl.gif)\n  ![Cloudup interactive mode](https://i.cloudup.com/m8K8vVohPm.gif)\n\n## Installation\n\n  Install with npm:\n\n```\n$ npm install -g up\n```\n\n  Authenticate:\n\n```\n$ up config\n\n  Cloudup up(1) one-time configuration requires your\n  password, however it is transfered via https\n  and is not stored locally. Subsequent operations\n  use the auth token generated from this process.\n\n  Username: tobi\n  Password: ******\n\n```\n\n## Usage\n\n```\n\n  Usage: up [options] [file ...]\n\n  Commands:\n\n    open                   open matching stream\n    copy                   copy matching stream's url\n    streams                list streams\n    config                 configure up(1)\n    help [cmd]             display help for [cmd]\n\n  Options:\n\n    -h, --help            output usage information\n    -V, --version         output the version number\n    -t, --title <name>    stream title name\n    -s, --stream <id>     upload to the given stream\n    -d, --direct          output direct links\n    -f, --filename <str>  assign filename to stdin\n    -T, --thumb-size <n>  thumbnail size in pixels [600]\n \n```\n\n## Examples\n\n  Examples illustrating how to use the cloudup command-line tool\n  to upload files and access your account.\n\n### Uploading\n\n  Upload a single file, the stream url is copied to your clipboard _immediately_\n  for sharing, even before the upload has completed.\n\n```\n$ up reflection.png\n\n reflection.png : 92%\n         stream : https://cloudup.com/cHFtYYeB8fJ\n```\n\n#### Multiple Files\n\n  Upload several files at once by passing multiple filenames:\n\n```\n$ up simon-*.png\n\n              simon-1.png : https://cloudup.com/iqd4NLa13ZV\n              simon-2.png : https://cloudup.com/iCxBKJZAm36\n              simon-3.png : https://cloudup.com/iEzTZXvVRYP\n              simon-4.png : https://cloudup.com/iRYA6bLp70E\n              simon-5.png : https://cloudup.com/ilMqsXxtTsV\n              simon-6.png : https://cloudup.com/ilVngVMMeSd\n              simon-7.png : https://cloudup.com/i1Tx8vkIbCC\n              simon-8.png : https://cloudup.com/ifUKcaz5I3A\n    simon-ball-ocean.png… : https://cloudup.com/iCA5N2PCJJS\n    simon-ocean-stick-2.… : 71%\n    simon-ocean-stick.pn… : 55%\n          simon-ocean.png : 74%\n                   stream : https://cloudup.com/c7WwhIwSl6Y\n```\n\n#### Thumbnails\n\n `up(1)` delivers thumbnails when possible before the files are uploaded, so viewers can\n  see what they're getting before-hand, and progress is updated in real-time.\n\n  ![cloudup cli simon photos](https://i.cloudup.com/jy3GcK9VpO-900x900.jpeg)\n\n#### STDIN\n\n  When no filenames are given `up(1)` reads from __stdin__:\n\n```\n$ echo 'hello world' | up\n```\n\n  A filename can be passed to help cloudup interpret the content:\n\n```\n$ echo 'hello __world__' | up --filename hello.md\n```\n\n#### Upload Options\n\n  You may optionally provide a stream `--title` upon upload, otherwise Cloudup\n  will generate one for you based on the content:\n\n```\n$ up ferrets/*.png --title Ferrets\n```\n\n  You may also upload to an existing stream by passing `--stream`:\n\n```\n$ up simon.png --stream c7WwhIwSl6Y\n```\n\n  If you prefer direct links you may use `--direct`:\n\n```\n$ up example.jpeg --direct\n\n  example.jpeg : http://i.cloudup.com/uBuZVUk80lK/SXSc1V.jpeg\n        stream : https://cloudup.com/c1rAycLAdHo\n```\n\n### Streams\n\n  List your cloudup streams:\n\n```\n$ up streams \n\n                    Art (19) https://cloudup.com/cQD5fdgPrU1\n                      C (2) https://cloudup.com/c4f5h12Ti1T\n                   Cats (3) https://cloudup.com/cVeLe7dWdEH\n        Cloudup - light (5) https://cloudup.com/ce4R6fdsQo\n                Cluster (3) https://cloudup.com/cQJg8sdf7qO\n                 Design (35) https://cloudup.com/c7nHCsd30hhF\n  Dolphins intelligence (8) https://cloudup.com/c5Hy71w2fWe\n                   EXIF (6) https://cloudup.com/coRcOdfXXiom\n              Es6 yield (2) https://cloudup.com/cJWXLX1af2t\n\n```\n\n  Search for streams:\n\n```\n$ up streams australia\n\n   Australia 2013 (63) https://cloudup.com/c_nzIQcjCWo\n\n```\n\n  Copy the first matching stream to the clipboard:\n\n```\n$ up copy australia\n```\n\n  Open the first matching stream in your default browser:\n\n```\n$ up open australia\n```\n\n### Interactive Mode\n\n  The `-i` or `--interactive` flag may be used to list streams in an\n  interactive list using the arrow keys to traverse the list. Pressing\n  _return_ will open the stream or item in your default browser.\n\n  The `up` / `down` arrows for navigating the list, and `left` / `right`\n  to view the items or go back to the stream list.\n\n  ![interactive mode](https://i.cloudup.com/m8K8vVohPm.gif)\n\n## Tips\n\n  Stream and item links that output to stdout may be opened\n  in the browser by holding down __command__ and double-clicking\n  the url.\n",
+  "readmeFilename": "Readme.md",
+  "_id": "up@0.6.0",
+  "dist": {
+    "shasum": "055dcf3c54dbdfe86148ff8c52724dd3612fc7e0"
+  },
+  "_from": "up@",
+  "_resolved": "https://registry.npmjs.org/up/-/up-0.6.0.tgz"
+}

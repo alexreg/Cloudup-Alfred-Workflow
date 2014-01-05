@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>nl.keeskluskens.cloudup</string>
+	<key>connections</key>
+	<dict>
+		<key>2D5CAAD8-E62A-4AE4-8344-FC0F577A2C6F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>58030863-B9E3-4278-94DD-49538363344B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>6957F27A-A9F8-4DE2-8715-E18E12E467EF</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3D9D61B6-8A41-443A-820C-940D5615CB06</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Open file(s) in browser.</string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>F430EBFD-E3DF-4BC8-B5C8-B341A003D6CE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>6C944E33-E43C-44C3-9DDA-55729AA5974B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3D9D61B6-8A41-443A-820C-940D5615CB06</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Open file(s) in browser.</string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>F430EBFD-E3DF-4BC8-B5C8-B341A003D6CE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>B6111BFC-D5B2-46A5-8937-043C9A0B6803</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F432B85E-AF33-477F-BCFA-BA92D161C2E4</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>F430EBFD-E3DF-4BC8-B5C8-B341A003D6CE</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>49452DA2-E6E8-4950-A01B-9442F9CCDE2D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>F432B85E-AF33-477F-BCFA-BA92D161C2E4</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>49452DA2-E6E8-4950-A01B-9442F9CCDE2D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>FD7D04B4-496B-426E-A9A6-C561E71C63FB</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2D5CAAD8-E62A-4AE4-8344-FC0F577A2C6F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Kees Kluskens</string>
+	<key>description</key>
+	<string>Upload files to Cloudup</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Cloudup</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>acceptsmulti</key>
+				<true/>
+				<key>filetypes</key>
+				<array/>
+				<key>name</key>
+				<string>Upload to Cloudup</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.action</string>
+			<key>uid</key>
+			<string>B6111BFC-D5B2-46A5-8937-043C9A0B6803</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>/usr/local/bin/node ./up/bin/up {query}; /usr/local/bin/node ./up/bin/up-copy;</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>F432B85E-AF33-477F-BCFA-BA92D161C2E4</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>anchorfields</key>
+				<true/>
+				<key>daterange</key>
+				<integer>0</integer>
+				<key>fields</key>
+				<array>
+					<dict>
+						<key>field</key>
+						<string>kMDItemDisplayName</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>field</key>
+						<string>kMDItemAlternateNames</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>field</key>
+						<string>kMDItemFinderComment</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+				</array>
+				<key>includesystem</key>
+				<false/>
+				<key>keyword</key>
+				<string>up*</string>
+				<key>scopes</key>
+				<array/>
+				<key>subtext</key>
+				<string>Hold cmd to open in browser.</string>
+				<key>title</key>
+				<string>Search and upload file to Cloudup</string>
+				<key>types</key>
+				<array/>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.filefilter</string>
+			<key>uid</key>
+			<string>6C944E33-E43C-44C3-9DDA-55729AA5974B</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>    if length of "{query}" is greater than 0
+        set pathList to "{query}"
+    else
+        tell application "Finder"
+            set theSelection to (get selection)
+            if length of theSelection is greater than 0
+                set pathList to {}
+                repeat with anItem in theSelection
+                    set itemPath to quoted form of POSIX path of (anItem as text)
+                    set pathList to pathList &amp; " " &amp; itemPath
+                end repeat
+            else
+                set pathList to (quoted form of POSIX path of (folder of the front window as alias))
+            end if
+        end tell
+    end if
+
+    tell application "System Events"
+            do shell script "/usr/local/bin/node ./up/bin/up "&amp; pathList &amp;"; /usr/local/bin/node ./up/bin/up-open;"
+    end tell</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>3D9D61B6-8A41-443A-820C-940D5615CB06</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>URL copied to your clipboard</string>
+				<key>title</key>
+				<string>File(s) uploaded to Cloudup</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>49452DA2-E6E8-4950-A01B-9442F9CCDE2D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>    if length of "{query}" is greater than 0
+        set pathList to "{query}"
+    else
+        tell application "Finder"
+            set theSelection to (get selection)
+            if length of theSelection is greater than 0
+                set pathList to {}
+                repeat with anItem in theSelection
+                    set itemPath to quoted form of POSIX path of (anItem as text)
+                    set pathList to pathList &amp; " " &amp; itemPath
+                end repeat
+            else
+                set pathList to (quoted form of POSIX path of (folder of the front window as alias))
+            end if
+        end tell
+    end if
+
+    tell application "System Events"
+            do shell script "/usr/local/bin/node ./up/bin/up "&amp; pathList &amp;"; /usr/local/bin/node ./up/bin/up-copy;"
+    end tell</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>F430EBFD-E3DF-4BC8-B5C8-B341A003D6CE</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>keyword</key>
+				<string>up</string>
+				<key>subtext</key>
+				<string>Upload Finder selection or path to Cloudup. Hold cmd to open in browser.</string>
+				<key>text</key>
+				<string>Upload selected files to Cloudup</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>6957F27A-A9F8-4DE2-8715-E18E12E467EF</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>up-config</string>
+				<key>subtext</key>
+				<string>Enter your username and password space-seperated.</string>
+				<key>text</key>
+				<string>Configure Cloudup</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>FD7D04B4-496B-426E-A9A6-C561E71C63FB</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>126</integer>
+				<key>script</key>
+				<string>/usr/local/bin/node ./up/bin/up-config {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>2D5CAAD8-E62A-4AE4-8344-FC0F577A2C6F</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>Password is stored safely on your Mac as a token.</string>
+				<key>title</key>
+				<string>Config saved</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>58030863-B9E3-4278-94DD-49538363344B</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string># Requirements
+Node.js
+
+# Usage
+First, enter the following in alfred:
+up-config [username] [password]
+
+After that, you can use it by selecting files in finder and then typing ‘up’ in Alfred. Another way is to type up* in Alfred to search for files you want to upload.
+
+Sidenote: If you have a space in your password then… you’re fucked for the moment.</string>
+	<key>uidata</key>
+	<dict>
+		<key>2D5CAAD8-E62A-4AE4-8344-FC0F577A2C6F</key>
+		<dict>
+			<key>ypos</key>
+			<real>540</real>
+		</dict>
+		<key>3D9D61B6-8A41-443A-820C-940D5615CB06</key>
+		<dict>
+			<key>ypos</key>
+			<real>140</real>
+		</dict>
+		<key>49452DA2-E6E8-4950-A01B-9442F9CCDE2D</key>
+		<dict>
+			<key>ypos</key>
+			<real>170</real>
+		</dict>
+		<key>58030863-B9E3-4278-94DD-49538363344B</key>
+		<dict>
+			<key>ypos</key>
+			<real>540</real>
+		</dict>
+		<key>6957F27A-A9F8-4DE2-8715-E18E12E467EF</key>
+		<dict>
+			<key>ypos</key>
+			<real>420</real>
+		</dict>
+		<key>6C944E33-E43C-44C3-9DDA-55729AA5974B</key>
+		<dict>
+			<key>ypos</key>
+			<real>130</real>
+		</dict>
+		<key>B6111BFC-D5B2-46A5-8937-043C9A0B6803</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>F430EBFD-E3DF-4BC8-B5C8-B341A003D6CE</key>
+		<dict>
+			<key>ypos</key>
+			<real>280</real>
+		</dict>
+		<key>F432B85E-AF33-477F-BCFA-BA92D161C2E4</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>FD7D04B4-496B-426E-A9A6-C561E71C63FB</key>
+		<dict>
+			<key>ypos</key>
+			<real>540</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://webduck.nl/</string>
+</dict>
+</plist>

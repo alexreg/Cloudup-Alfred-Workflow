@@ -1,0 +1,50 @@
+#!/usr/bin/env node
+
+// This file is modified by Kees Kluskens to work with the Alfred workflow for Cloudup.
+// You can enter a username and password by typing this: ./up-config [username] [password]
+
+/**
+ * Module dependencies.
+ */
+
+var Cloudup = require('cloudup-client');
+var program = require('commander');
+var up = require('..');
+var s = require('printf');
+
+// options
+
+program
+  .parse(process.argv);
+
+
+var userpass = program.args;
+
+// app id
+
+var appid = process.env.UP_APP_ID || 'arKRYoze02T';
+
+// setup
+
+console.log('');
+console.log('  Cloudup up(1) one-time configuration requires your');
+console.log('  password, however it is transfered via https');
+console.log('  and is not stored locally. Subsequent operations');
+console.log('  use the auth token generated from this process.');
+console.log('');
+
+var client = up.client({
+  user: userpass[0],
+  pass: userpass[1]
+});
+
+client.requestToken(appid, function(err, tok){
+  if (err) throw err;
+
+  up.saveConfig({
+    token: tok,
+    user: userpass[0]
+  });
+
+  console.log('\n  Configuration saved to ' + up.configPath + '\n');
+});
